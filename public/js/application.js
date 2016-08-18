@@ -1,4 +1,5 @@
 /*jshint multistr: true */
+JSEncrypt = require('jsencrypt').JSEncrypt;
 
 PUBLIC_KEY = "-----BEGIN PUBLIC KEY-----\
 MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAuj9SZS3++QeQWdueiU2J\
