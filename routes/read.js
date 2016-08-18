@@ -8,4 +8,8 @@ router.get('/', function(req, res) {
   DocumentService.read(res);
 });
 
+router.delete('/', function(req, res) {
+  DocumentService.remove(res);
+});
+
 module.exports = router;

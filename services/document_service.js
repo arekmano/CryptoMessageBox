@@ -12,7 +12,7 @@ var read = function(res) {
 var readDocuments = function(db, callback) {
   db.collection(Constants.collection_name).find(
     {},
-    { _id: 0, key: 1}
+    { _id: 0, key: 1, value: 1}
   ).toArray(function(err, docs) {
     db.close();
     callback(docs);
@@ -29,7 +29,16 @@ var write = function(req, res) {
   });
 };
 
+var remove = function(res) {
+  MongoClient.connect(Constants.mongo_url, function(err, db) {
+    db.collection(Constants.collection_name).remove();
+    db.close();
+    res.json({message: 'OK'});
+  });
+};
+
 module.exports = {
   read: read,
-  write: write
+  write: write,
+  remove: remove
 };
