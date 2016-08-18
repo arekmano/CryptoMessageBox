@@ -37,7 +37,7 @@ gulp.task('develop', function () {
 
 function browserifier(){
   var b = browserify({
-    entries: './public/js/application.js',
+    entries: './dev/js/application.js',
     debug: true
   });
 
