@@ -17,6 +17,10 @@ function submitKeyValuePair(event) {
   key_element = document.getElementById("key");
   value_element = document.getElementById("value");
 
+  if (value_element.value == ""){
+    value_element = document.getElementById("value_select");
+  }
+
   var pair = {
     key : key_element.value,
     value : value_element.value
@@ -42,4 +46,16 @@ function send(encrypted_pair) {
 window.onload = function(){
   var form = document.getElementById("form");
   form.addEventListener('submit', submitKeyValuePair);
+  var form = form.appendChild(createSelect());
 };
+
+function createSelect(){
+  var select = document.createElement("select");
+  select.id = "value_select";
+  Constants.value_options.forEach(function(element){
+    var option = document.createElement("option");
+    option.text = element;
+    select.add(option);
+  })
+  return select;
+}
